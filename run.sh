@@ -9,5 +9,7 @@
 # admin_password = "12345"
 # /var/www/html/data/_data_/_default_/configs/application.ini
 
+chown -R www-data.www-data /var/www/html/data
+
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
