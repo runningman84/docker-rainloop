@@ -44,5 +44,7 @@ fi
 
 chown -R www-data.www-data /var/www/html/data/
 
+chown -R www-data.www-data /var/www/html/data
+
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
