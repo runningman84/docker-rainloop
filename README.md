@@ -1,12 +1,17 @@
 Rainloop Webmail
 ============
 
+[![](https://images.microbadger.com/badges/version/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
+[![](https://images.microbadger.com/badges/image/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
+[![](https://img.shields.io/docker/stars/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
+[![](https://img.shields.io/docker/pulls/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
+
 Introduction
 ----
 This docker image installs Rainloop Webmail on Ubuntu Xenial.
 
 A documentation can be found here:
-http://www.rainloop.net/
+[http://www.rainloop.net/](http://www.rainloop.net/)
 
 
 Install

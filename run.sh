@@ -42,8 +42,6 @@ else
   echo "admin_password = $RAINLOOP_ADMIN_PASSWORD" >> /var/www/html/data/_data_/_default_/configs/application.ini
 fi
 
-chown -R www-data.www-data /var/www/html/data/
-
 chown -R www-data.www-data /var/www/html/data
 
 source /etc/apache2/envvars
