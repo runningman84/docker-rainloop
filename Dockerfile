@@ -28,14 +28,14 @@ RUN ln -sf /dev/stdout /var/log/apache2/access.log && \
   ln -sf /dev/stderr /var/log/apache2/error.log
 
 # Download latest stable version of Rainloop into /var/www/html
-RUN rm -fr /var/www/html && wget -q http://repository.rainloop.net/v2/webmail/rainloop-latest.zip \
+RUN rm -fr /var/www/html && wget -q http://www.rainloop.net/repository/owncloud/rainloop.zip \
   -O /tmp/latest.zip && \
   unzip /tmp/latest.zip \
   -d /tmp && \
   mkdir /var/www/html && \
   mkdir /var/www/html/rainloop && \
   mkdir /var/www/html/data && \
-  mv /tmp/rainloop /var/www/html && \
+  mv /tmp/rainloop/app/rainloop /var/www/html && \
   chown -R www-data.www-data /var/www/html/data && \
   chown -R root.root /var/www/html/rainloop && \
   find /var/www/html/rainloop -type d -exec chmod 755 {} \; && \
