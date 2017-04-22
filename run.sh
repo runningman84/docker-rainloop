@@ -14,6 +14,7 @@ if [ -z ${PHP_MAX_UPLOAD_SIZE+x} ]; then PHP_MAX_UPLOAD_SIZE=8M; fi
 if [ -z ${PHP_MAX_UPLOADS+x} ]; then PHP_MAX_UPLOADS=20; fi
 if [ -z ${PHP_MAX_EXECUTION_ZIME+x} ]; then PHP_MAX_EXECUTION_ZIME=30; fi
 # RAINLOOP defaults
+if [ -z ${RAINLOOP_PATH+x} ]; then RAINLOOP_PATH=/var/www/html/rainloop; fi
 if [ -z ${RAINLOOP_ADMIN_LOGIN+x} ]; then RAINLOOP_ADMIN_LOGIN=admin; fi
 if [ -z ${RAINLOOP_ADMIN_PASSWORD+x} ]; then RAINLOOP_ADMIN_PASSWORD=12345; fi
 
@@ -44,7 +45,7 @@ fi
 
 chown -R www-data.www-data /var/www/html/data
 
-/adminpass.php
+/adminpass.php "/var/www/html" "$RAINLOOP_ADMIN_PASSWORD"
 
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND
