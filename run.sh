@@ -34,15 +34,17 @@ sed "s/max_execution_time.*=.*/max_execution_time = $PHP_MAX_EXECUTION_ZIME/g" -
 
 if [ -f /var/www/html/data/_data_/_default_/configs/application.ini  ]; then
   sed "s/admin_login.*=.*/admin_login = $RAINLOOP_ADMIN_LOGIN/g" -i /var/www/html/data/_data_/_default_/configs/application.ini
-  sed "s/admin_password.*=.*/admin_password = $RAINLOOP_ADMIN_PASSWORD/g" -i /var/www/html/data/_data_/_default_/configs/application.ini
+  #sed "s/admin_password.*=.*/admin_password = $RAINLOOP_ADMIN_PASSWORD/g" -i /var/www/html/data/_data_/_default_/configs/application.ini
 else
   mkdir -p /var/www/html/data/_data_/_default_/configs/
   echo "[security]" >> /var/www/html/data/_data_/_default_/configs/application.ini
   echo "admin_login = $RAINLOOP_ADMIN_LOGIN" >> /var/www/html/data/_data_/_default_/configs/application.ini
-  echo "admin_password = $RAINLOOP_ADMIN_PASSWORD" >> /var/www/html/data/_data_/_default_/configs/application.ini
+  #echo "admin_password = $RAINLOOP_ADMIN_PASSWORD" >> /var/www/html/data/_data_/_default_/configs/application.ini
 fi
 
 chown -R www-data.www-data /var/www/html/data
+
+/adminpass.php
 
 source /etc/apache2/envvars
 exec apache2 -D FOREGROUND

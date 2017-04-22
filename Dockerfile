@@ -11,12 +11,13 @@ ENV APACHE_MIN_CHILDS=1 \
     PHP_MAX_UPLOAD_SIZE=20M \
     PHP_MAX_UPLOADS=20 \
     PHP_MAX_EXECUTION_ZIME=30 \
+    RAINLOOP_PATH=/var/www/html/rainloop \
     RAINLOOP_ADMIN_LOGIN=admin \
     RAINLOOP_ADMIN_PASSWORD=12345
 
 # Install plugins
 RUN apt-get update && \
-  apt-get -y install wget unzip apache2 libapache2-mod-php php-curl php-xml php-sqlite3 curl && \
+  apt-get -y install wget unzip apache2 libapache2-mod-php php-cli php-curl php-xml php-sqlite3 curl && \
   rm -rf /var/lib/apt/lists/*
 
 # init
@@ -33,16 +34,16 @@ RUN rm -fr /var/www/html && wget -q http://repository.rainloop.net/v2/webmail/ra
   unzip /tmp/latest.zip \
   -d /tmp && \
   mkdir /var/www/html && \
-  mkdir /var/www/html/rainloop && \
+  mkdir ${RAINLOOP_PATH} && \
   mkdir /var/www/html/data && \
   mv /tmp/rainloop /var/www/html && \
   chown -R www-data.www-data /var/www/html/data && \
-  chown -R root.root /var/www/html/rainloop && \
-  find /var/www/html/rainloop -type d -exec chmod 755 {} \; && \
-  find /var/www/html/rainloop -type f -exec chmod 644 {} \; && \
+  chown -R root.root ${RAINLOOP_PATH} && \
+  find ${RAINLOOP_PATH} -type d -exec chmod 755 {} \; && \
+  find ${RAINLOOP_PATH} -type f -exec chmod 644 {} \; && \
   rm /tmp/latest.zip
 
-RUN cp /var/www/html/rainloop/v/*/index.php.root /var/www/html/index.php
+RUN cp ${RAINLOOP_PATH}/v/*/index.php.root /var/www/html/index.php
 
 ADD vhost.conf /etc/apache2/sites-available/000-default.conf
 
@@ -53,7 +54,8 @@ EXPOSE 80
 HEALTHCHECK --interval=5m --timeout=3s CMD curl -I -s -f http://localhost:80/ || exit 1
 
 ADD run.sh /run.sh
-RUN chmod +x /*.sh
+ADD adminpass.php /adminpass.php
+RUN chmod 700 /*.sh && chmod 700 /*.php
 
 # Server CMD
 CMD ["dumb-init", "/run.sh"]
