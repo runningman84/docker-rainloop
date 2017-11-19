@@ -13,4 +13,4 @@ include $path . '/index.php';
 
 $oConfig = \RainLoop\Api::Config();
 $oConfig->SetPassword($pass);
-echo $oConfig->Save() ? 'Done' : 'Error';
+echo $oConfig->Save() ? 'Admin password changed' : 'Admin password could not be changed';
