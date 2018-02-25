@@ -17,7 +17,7 @@ ENV APACHE_MIN_CHILDS=1 \
 
 # Install plugins
 RUN apt-get update && \
-  apt-get -y install wget unzip apache2 libapache2-mod-php php-cli php-curl php-xml php-sqlite3 curl && \
+  apt-get -y install wget unzip apache2 libapache2-mod-php php-cli php-curl php-xml php-sqlite3 curl php-ldap && \
   rm -rf /var/lib/apt/lists/*
 
 # init
