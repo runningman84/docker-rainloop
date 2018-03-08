@@ -1,6 +1,8 @@
 FROM ubuntu:18.04
 MAINTAINER Philipp Hellmich <phil@hellmi.de>
 
+ARG DEBIAN_FRONTEND=noninteractive
+
 ENV APACHE_MIN_CHILDS=1 \
     APACHE_MAX_CHILDS=50 \
     APACHE_MIN_CHILDS_SPARE=1 \
