@@ -28,10 +28,10 @@ sed "s/ServerAdmin .*/ServerAdmin $APACHE_SERVER_ADMIN/g" -i /etc/apache2/sites-
 
 echo "ServerName $APACHE_SERVER_NAME" > /etc/apache2/conf-enabled/servername.conf
 
-sed "s/post_max_size.*=.*/post_max_size = $PHP_MAX_POST_SIZE/g" -i /etc/php/7.0/apache2/php.ini
-sed "s/upload_max_filesize.*=.*/upload_max_filesize = $PHP_MAX_UPLOAD_SIZE/g" -i /etc/php/7.0/apache2/php.ini
-sed "s/max_file_uploads.*=.*/max_file_uploads = $PHP_MAX_UPLOADS/g" -i /etc/php/7.0/apache2/php.ini
-sed "s/max_execution_time.*=.*/max_execution_time = $PHP_MAX_EXECUTION_ZIME/g" -i /etc/php/7.0/apache2/php.ini
+sed "s/post_max_size.*=.*/post_max_size = $PHP_MAX_POST_SIZE/g" -i /etc/php/7.2/apache2/php.ini
+sed "s/upload_max_filesize.*=.*/upload_max_filesize = $PHP_MAX_UPLOAD_SIZE/g" -i /etc/php/7.2/apache2/php.ini
+sed "s/max_file_uploads.*=.*/max_file_uploads = $PHP_MAX_UPLOADS/g" -i /etc/php/7.2/apache2/php.ini
+sed "s/max_execution_time.*=.*/max_execution_time = $PHP_MAX_EXECUTION_ZIME/g" -i /etc/php/7.2/apache2/php.ini
 
 if [ -f /var/www/html/data/_data_/_default_/configs/application.ini  ]; then
   sed "s/admin_login.*=.*/admin_login = $RAINLOOP_ADMIN_LOGIN/g" -i /var/www/html/data/_data_/_default_/configs/application.ini
