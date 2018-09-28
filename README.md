@@ -5,6 +5,7 @@ Rainloop Webmail
 [![](https://images.microbadger.com/badges/image/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
 [![](https://img.shields.io/docker/stars/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
 [![](https://img.shields.io/docker/pulls/runningman84/rainloop.svg)](https://hub.docker.com/r/runningman84/rainloop "Click to view the image on Docker Hub")
+[![Anchore Image Overview](https://anchore.io/service/badges/image/1ef8b47356c1ca8ea007e4f10e4eab8816c6c9b2880bf6e47e544dd41519c2b2)](https://anchore.io/image/dockerhub/runningman84%2Frainloop%3Alatest)
 
 Introduction
 ----
