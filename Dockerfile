@@ -23,7 +23,7 @@ RUN apt-get update && \
   rm -rf /var/lib/apt/lists/*
 
 # init
-RUN wget -q https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_amd64.deb && \
+RUN wget -q https://github.com/Yelp/dumb-init/releases/download/v1.2.2/dumb-init_1.2.2_amd64.deb && \
   dpkg -i dumb-init_*.deb && rm dumb-init_*.deb
 
 RUN ln -sf /dev/stdout /var/log/apache2/access.log && \
